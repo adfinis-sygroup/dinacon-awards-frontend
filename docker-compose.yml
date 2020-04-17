@@ -1,0 +1,62 @@
+version: "3.4"
+
+services:
+  frontend:
+    # image: adfinis-sygroup/dinacon-awards
+    build:
+      context: .
+    depends_on:
+      - caluma
+      - minio
+      - keycloak
+    ports:
+      - "80:80"
+
+  db:
+    image: postgres:12-alpine
+    environment:
+      - POSTGRES_USER=dinacon_awards
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+
+  caluma:
+    image: acr.run/ad-sy/tarzan/caluma:${CI_COMMIT_REF_SLUG:-master}
+    build:
+      context: caluma
+      cache_from:
+        - acr.run/ad-sy/tarzan/caluma:master
+    environment:
+      - DATABASE_HOST=db
+      - DATABASE_NAME=dinacon_awards
+      - DATABASE_USER=dinacon_awards
+      - LANGUAGE=en
+      - LANGUAGES=en
+      - OIDC_USERINFO_ENDPOINT=http://dinacon-awards.local/auth/realms/tarzan/protocol/openid-connect/userinfo
+    depends_on:
+      - db
+      - minio
+      - keycloak
+
+  keycloak:
+    image: jboss/keycloak:9.0.3
+    depends_on:
+      - db
+    environment:
+      - DB_VENDOR=postgres
+      - DB_ADDR=db
+      - DB_USER=dinacon_awards
+      - DB_DATABASE=dinacon_awards
+      - PROXY_ADDRESS_FORWARDING=true
+      - KEYCLOAK_USER=admin
+
+  minio:
+    image: minio/minio:latest
+    volumes:
+      - minio_data:/data
+    ports:
+      - "9000:9000"
+    command: server data
+
+volumes:
+  dbdata:
+  minio_data:

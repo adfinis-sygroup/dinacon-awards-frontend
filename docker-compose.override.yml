@@ -1,0 +1,53 @@
+version: "3.4"
+
+services:
+  frontend:
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - dinacon-awards.local
+
+  db:
+    environment:
+      - POSTGRES_PASSWORD=dinacon_awards
+    networks:
+      - dinacon-awards.local
+
+  keycloak:
+    volumes:
+      - ./keycloak/:/etc/keycloak/
+    environment:
+      - DB_PASSWORD=dinacon_awards
+      - KEYCLOAK_PASSWORD=admin
+    command:
+      [
+        "-Dkeycloak.migration.action=import",
+        "-Dkeycloak.migration.provider=singleFile",
+        "-Dkeycloak.migration.file=/etc/keycloak/keycloak.json",
+        "-b",
+        "0.0.0.0",
+      ]
+    networks:
+      - dinacon-awards.local
+
+  caluma:
+    environment:
+      - ENV=development
+      - MINIO_STORAGE_ENDPOINT=dinacon-awards.local
+      - CORS_ORIGIN_ALLOW_ALL=True
+      - DATABASE_PASSWORD=dinacon_awards
+    volumes:
+      - ./caluma/extensions:/app/caluma/extensions
+      - ./caluma/fixtures:/app/caluma/fixtures:ro
+    networks:
+      - dinacon-awards.local
+
+  minio:
+    environment:
+      - MINIO_ACCESS_KEY=minio
+      - MINIO_SECRET_KEY=minio123
+    networks:
+      - dinacon-awards.local
+
+networks:
+  dinacon-awards.local:
