@@ -1,0 +1,7 @@
+{{#if this.documentId}}
+  <CfContent
+    @documentId={{this.documentId}}
+    @disabled={{not this.canFillForm}}
+    @context={{this.context}}
+  />
+{{/if}}

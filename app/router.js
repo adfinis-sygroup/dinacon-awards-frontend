@@ -13,5 +13,7 @@ Router.map(function () {
     as: "form-builder",
     path: "/form-builder",
   });
-  this.route('login');
+  this.route("login");
+  this.route("nomination", { path: "/nomination/:case_id" }, function () {});
+  this.route("nomination-complete");
 });

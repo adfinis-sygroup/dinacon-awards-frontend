@@ -6,8 +6,15 @@ export default class ApplicationRoute extends Route.extend(
   OIDCApplicationRouteMixin
 ) {
   @service intl;
+  @service calumaOptions;
 
   beforeModel() {
     this.intl.setLocale("en");
+
+    this.calumaOptions.registerComponentOverride({
+      label: "complete-workitem-button",
+      component: "complete-workitem-button",
+      types: ["StaticQuestion"],
+    });
   }
 }

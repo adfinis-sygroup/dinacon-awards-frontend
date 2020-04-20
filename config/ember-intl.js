@@ -1,6 +1,6 @@
 /*jshint node:true*/
 
-module.exports = function(/* environment */) {
+module.exports = function (/* environment */) {
   return {
     /**
      * The locales that the application needs to support.
@@ -38,7 +38,7 @@ module.exports = function(/* environment */) {
      * @type {String}
      * @default "'translations'"
      */
-    inputPath: 'translations',
+    inputPath: "translations",
 
     /**
      * Automatically inject the Intl.JS polyfill into index.html
@@ -120,6 +120,6 @@ module.exports = function(/* environment */) {
      */
     requiresTranslation(/* key, locale */) {
       return true;
-    }
+    },
   };
 };

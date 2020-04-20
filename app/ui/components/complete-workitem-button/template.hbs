@@ -1,0 +1,12 @@
+{{#unless @disabled}}
+  <div class="uk-text-right">
+    <UkButton
+      @color="primary"
+      @disabled={{or this.disabled this.submit.isRunning}}
+      @loading={{this.submit.isRunning}}
+      @on-click={{perform this.submit}}
+    >
+      {{@field.question.label}}
+    </UkButton>
+  </div>
+{{/unless}}
