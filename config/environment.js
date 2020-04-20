@@ -6,6 +6,7 @@ module.exports = function (environment) {
     environment,
     rootURL: "/",
     locationType: "auto",
+    podModulePrefix: "dinacon-awards/ui",
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -20,6 +21,21 @@ module.exports = function (environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    apollo: {
+      apiURL: "/graphql",
+    },
+
+    "ember-simple-auth-oidc": {
+      host: "/auth/realms/dinacon-awards/protocol/openid-connect",
+      clientId: "dinacon-awards",
+      authEndpoint: "/auth",
+      tokenEndpoint: "/token",
+      endSessionEndpoint: "/logout",
+      userinfoEndpoint: "/userinfo",
+      afterLogoutUri: "/login",
+      forwardParams: ["kc_idp_hint"],
     },
   };
 

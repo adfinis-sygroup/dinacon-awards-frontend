@@ -29,8 +29,6 @@ services:
       - DATABASE_HOST=db
       - DATABASE_NAME=dinacon_awards
       - DATABASE_USER=dinacon_awards
-      - LANGUAGE=en
-      - LANGUAGES=en
       - OIDC_USERINFO_ENDPOINT=http://dinacon-awards.local/auth/realms/tarzan/protocol/openid-connect/userinfo
     depends_on:
       - db

@@ -8,4 +8,10 @@ export default class Router extends EmberRouter {
 }
 
 /* eslint-disable-next-line array-callback-return */
-Router.map(function () {});
+Router.map(function () {
+  this.mount("ember-caluma", {
+    as: "form-builder",
+    path: "/form-builder",
+  });
+  this.route('login');
+});

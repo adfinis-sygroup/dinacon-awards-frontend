@@ -8,6 +8,21 @@ export default class App extends Application {
   modulePrefix = config.modulePrefix;
   podModulePrefix = config.podModulePrefix;
   Resolver = Resolver;
+
+  engines = {
+    emberCaluma: {
+      dependencies: {
+        services: [
+          "apollo",
+          "notification",
+          "router",
+          "intl",
+          "caluma-options",
+          "validator",
+        ],
+      },
+    },
+  };
 }
 
 loadInitializers(App, config.modulePrefix);

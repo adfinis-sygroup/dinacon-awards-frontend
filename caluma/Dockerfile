@@ -1,4 +1,7 @@
-FROM projectcaluma/caluma:version-5.2.0
+FROM projectcaluma/caluma:version-5.5.2
+
+ENV LANGUAGE=en
+ENV LANGUAGES=en
 
 ENV OIDC_BEARER_TOKEN_REVALIDATION_TIME 300
 
