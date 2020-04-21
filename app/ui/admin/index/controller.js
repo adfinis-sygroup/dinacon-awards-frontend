@@ -10,7 +10,7 @@ import {
 } from "ember-concurrency-decorators";
 import gql from "graphql-tag";
 
-export default class AdminController extends Controller {
+export default class AdminIndexController extends Controller {
   @queryManager apollo;
 
   queryParams = ["type", "category", "search"];

@@ -1,3 +1,6 @@
 nominate: "Nominate a project"
 all-categories: "All categories"
 search: "Search..."
+admin: "Admin"
+forms: "Forms"
+logout: "Logout"

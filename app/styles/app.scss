@@ -1,4 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap");
+
 $modal-z-index: 1;
+$global-font-family: Ubuntu, sans-serif;
+$base-body-font-weight: 300;
+$base-heading-font-weight: 300;
+$base-strong-font-weight: 500;
+
+$global-primary-background: #29a8ae;
+$global-secondary-background: #ffa999;
 
 @import "ember-uikit";
 @import "ember-caluma";
+
+@import "header";
+
+.uk-text-bold {
+  font-weight: $base-strong-font-weight;
+}

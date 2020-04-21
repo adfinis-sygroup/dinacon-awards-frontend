@@ -1,1 +1,21 @@
-{{outlet}}
+<header class="header uk-padding uk-padding-remove-horizontal">
+  <LinkTo @route="index" class="uk-width-small">
+    <img src="/assets/dinacon-logo-text-bottom.png" alt={{t "dinacon-logo"}}>
+  </LinkTo>
+
+  {{#if this.session.isAuthenticated}}
+    <ul class="uk-subnav uk-subnav-divider">
+      <LinkTo @route="admin.index" @activeClass="uk-active">
+        <LinkTo @route="admin.index">{{t "admin"}}</LinkTo>
+      </LinkTo>
+      <LinkTo @route="admin.form-builder" @activeClass="uk-active">
+        <LinkTo @route="admin.form-builder">{{t "forms"}}</LinkTo>
+      </LinkTo>
+      <li><a href="" {{on "click" this.logout}}>{{t "logout"}}</a></li>
+    </ul>
+  {{/if}}
+</header>
+
+<main class="uk-container uk-padding-large uk-padding-remove-horizontal">
+  {{outlet}}
+</main>

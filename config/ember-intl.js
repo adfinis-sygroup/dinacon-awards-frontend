@@ -15,7 +15,7 @@ module.exports = function (/* environment */) {
      * @type {Array?}
      * @default "null"
      */
-    locales: null,
+    locales: ["en"],
 
     /**
      * Merges the fallback locale's translations into all other locales as a
@@ -27,7 +27,7 @@ module.exports = function (/* environment */) {
      * @type {String?}
      * @default "null"
      */
-    fallbackLocale: null,
+    fallbackLocale: "en",
 
     /**
      * Path where translations are kept.  This is relative to the project root.
@@ -119,7 +119,7 @@ module.exports = function (/* environment */) {
      * @default "function(key,locale){return true}"
      */
     requiresTranslation(/* key, locale */) {
-      return true;
+      return false;
     },
   };
 };
