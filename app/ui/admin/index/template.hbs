@@ -24,57 +24,76 @@
       </optgroup>
     </select>
   </div>
+
+  <div class="uk-text-right uk-width-expand">
+    <div class="uk-button-group">
+      {{#each this.types as |type|}}
+        <UkButton @color={{if (eq type this.type) "primary" "default"}} @on-click={{fn (mut this.type) type}}>{{t (concat "types." type)}}</UkButton>
+      {{/each}}
+    </div>
+  </div>
 </div>
 
-<ul class="uk-list uk-list-striped">
-  {{#if (eq this.type "nomination")}}
-    {{#each this.cases as |nomination|}}
-      <li>
-        <span class="uk-flex uk-flex-middle">
-          <LinkTo
-            @route="nomination"
-            @model={{nomination.id}}
-            class="uk-text-bold uk-text-large uk-margin-right"
-          >
-            {{nomination.projectName}} ({{nomination.startYear}})
-          </LinkTo>
-          <UkLabel @color="success" @label={{nomination.category}} />
-        </span>
-        <div uk-grid class="uk-grid-small">
-          <div class="uk-width-1-3">
-            <ul class="uk-padding-remove">
-              <li>
-                <UkIcon @icon="location" />
-                {{nomination.location}}
-              </li>
-              <li>
-                <a class="uk-link-text" href="{{nomination.website}}" target="_blank" rel="noopener noreferrer">
-                  <UkIcon @icon="world" />
-                  {{nomination.website}}
-                </a>
-              </li>
-              {{#if (eq nomination.partOfProject "part-of-the-project-yes")}}
+{{#if this.fetchCases.isRunning}}
+  <div class="uk-padding-large uk-text-center">
+    <UkSpinner @ratio={{3}} />
+  </div>
+{{else if this.cases.length}}
+  <ul class="uk-list uk-list-striped">
+    {{#if (eq this.type "nomination")}}
+      {{#each this.cases as |nomination|}}
+        <li>
+          <span class="uk-flex uk-flex-middle">
+            <LinkTo
+              @route="nomination"
+              @model={{nomination.id}}
+              class="uk-text-bold uk-text-large uk-margin-right"
+            >
+              {{nomination.projectName}} ({{nomination.startYear}})
+            </LinkTo>
+            <UkLabel @color="success" @label={{nomination.category}} />
+          </span>
+          <div uk-grid class="uk-grid-small">
+            <div class="uk-width-1-3">
+              <ul class="uk-padding-remove">
                 <li>
-                  <a class="uk-link-text" href="mailto:{{nomination.email}}">
-                    <UkIcon @icon="user" />
-                    {{nomination.name}}
-                    &lt;{{nomination.email}}&gt;
+                  <UkIcon @icon="location" />
+                  {{nomination.location}}
+                </li>
+                <li>
+                  <a class="uk-link-text" href="{{nomination.website}}" target="_blank" rel="noopener noreferrer">
+                    <UkIcon @icon="world" />
+                    {{nomination.website}}
                   </a>
                 </li>
-              {{else}}
-                <li>
-                  <a class="uk-link-text" href="mailto:{{nomination.contactEmail}}">
-                    <UkIcon @icon="user" />
-                    {{nomination.contactName}}
-                    &lt;{{nomination.contactEmail}}&gt;
-                  </a>
-                </li>
-              {{/if}}
-            </ul>
+                {{#if (eq nomination.partOfProject "part-of-the-project-yes")}}
+                  <li>
+                    <a class="uk-link-text" href="mailto:{{nomination.email}}">
+                      <UkIcon @icon="user" />
+                      {{nomination.name}}
+                      &lt;{{nomination.email}}&gt;
+                    </a>
+                  </li>
+                {{else}}
+                  <li>
+                    <a class="uk-link-text" href="mailto:{{nomination.contactEmail}}">
+                      <UkIcon @icon="user" />
+                      {{nomination.contactName}}
+                      &lt;{{nomination.contactEmail}}&gt;
+                    </a>
+                  </li>
+                {{/if}}
+              </ul>
+            </div>
+            <div class="uk-width-1-3 uk-text-italic">{{nomination.reason}}</div>
           </div>
-          <div class="uk-width-1-3 uk-text-italic">{{nomination.reason}}</div>
-        </div>
-      </li>
-    {{/each}}
-  {{/if}}
-</ul>
+        </li>
+      {{/each}}
+    {{/if}}
+  </ul>
+{{else}}
+  <div class="uk-padding-large uk-text-center">
+    <UkIcon @icon="search" @ratio={{3}} />
+    <p class="uk-text-large uk-text-italic uk-text-muted">{{t "empty"}}</p>
+  </div>
+{{/if}}

@@ -4,3 +4,7 @@ search: "Search..."
 admin: "Admin"
 forms: "Forms"
 logout: "Logout"
+empty: "No entries found"
+types:
+  nomination: "Nominations"
+  application: "Applications"

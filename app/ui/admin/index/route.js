@@ -8,7 +8,10 @@ export default class AdminIndexRoute extends Route {
   };
 
   model() {
-    if (this.controller) this.controller.fetchCases.perform();
+    if (this.controller) {
+      this.controller.fetchCases.cancelAll({ resetState: true });
+      this.controller.fetchCases.perform();
+    }
   }
 
   setupController(controller, model) {
