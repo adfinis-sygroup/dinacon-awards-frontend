@@ -1,7 +1,12 @@
 <header class="header uk-padding uk-padding-remove-horizontal">
-  <LinkTo @route="index" class="uk-width-small">
+  <LinkTo @route="index" class="header__logo">
     <img src="/assets/dinacon-logo-text-bottom.png" alt={{t "dinacon-logo"}}>
   </LinkTo>
+
+  <div class="header__powered-by uk-text-meta uk-flex uk-flex-middle uk-margin-top">
+    <span class="uk-text-nowrap uk-margin-small-right">{{t "powered-by"}}</span>
+    <a href="https://caluma.io" target="blank" rel="noopener noreferrer"><img src="/assets/caluma-logo.png" alt={{t "caluma"}}></a>
+  </div>
 
   {{#if this.session.isAuthenticated}}
     <ul class="uk-subnav uk-subnav-divider">
