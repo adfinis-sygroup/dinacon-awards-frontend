@@ -45,6 +45,10 @@ module.exports = function (environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+
+    const { host } = ENV["ember-simple-auth-oidc"];
+
+    ENV["ember-simple-auth-oidc"].host = `http://dinacon-awards.local${host}`;
   }
 
   if (environment === "test") {

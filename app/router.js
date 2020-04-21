@@ -16,4 +16,5 @@ Router.map(function () {
   this.route("login");
   this.route("nomination", { path: "/nomination/:case_id" }, function () {});
   this.route("nomination-complete");
+  this.route("admin");
 });

@@ -16,7 +16,7 @@
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
     "start": "ember serve",
-    "start:proxy": "ember serve --proxy http://dinacon-awards.local",
+    "start-proxy": "ember serve --proxy http://dinacon-awards.local",
     "test": "npm-run-all lint:* test:*",
     "test:ember": "ember test"
   },
@@ -60,7 +60,7 @@
     "ember-qunit": "^4.6.0",
     "ember-resolver": "^8.0.0",
     "ember-simple-auth": "^3.0.0",
-    "ember-simple-auth-oidc": "^1.1.0",
+    "ember-simple-auth-oidc": "bjornharrtell/ember-simple-auth-oidc#ember-ajax",
     "ember-source": "~3.18.0",
     "ember-template-lint": "^2.4.0",
     "ember-truth-helpers": "^2.1.0",
