@@ -36,9 +36,13 @@ services:
       - MINIO_STORAGE_ENDPOINT=dinacon-awards.local
       - CORS_ORIGIN_ALLOW_ALL=True
       - DATABASE_PASSWORD=dinacon_awards
+      - OIDC_USERINFO_ENDPOINT=http://dinacon-awards.local/auth/realms/tarzan/protocol/openid-connect/userinfo
     volumes:
       - ./caluma/extensions:/app/caluma/extensions
       - ./caluma/fixtures:/app/caluma/fixtures:ro
+    command: /bin/sh -c "wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py runserver 0.0.0.0:8000"
+    ports:
+      - "5555:5555"
     networks:
       - dinacon-awards.local
 

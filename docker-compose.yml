@@ -20,16 +20,11 @@ services:
       - dbdata:/var/lib/postgresql/data
 
   caluma:
-    image: acr.run/ad-sy/tarzan/caluma:${CI_COMMIT_REF_SLUG:-master}
-    build:
-      context: caluma
-      cache_from:
-        - acr.run/ad-sy/tarzan/caluma:master
+    build: caluma
     environment:
       - DATABASE_HOST=db
       - DATABASE_NAME=dinacon_awards
       - DATABASE_USER=dinacon_awards
-      - OIDC_USERINFO_ENDPOINT=http://dinacon-awards.local/auth/realms/tarzan/protocol/openid-connect/userinfo
     depends_on:
       - db
       - minio
