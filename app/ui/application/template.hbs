@@ -1,22 +1,22 @@
 <header class="header uk-padding uk-padding-remove-horizontal">
   <LinkTo @route="index" class="header__logo">
-    <img src="/assets/dinacon-logo-text-bottom.png" alt={{t "dinacon-logo"}}>
+    <img src="/assets/dinacon-logo-text-bottom.png" alt={{t "header.dinacon-logo"}}>
   </LinkTo>
 
   <div class="header__powered-by uk-text-meta uk-flex uk-flex-middle uk-margin-top">
-    <span class="uk-text-nowrap uk-margin-small-right">{{t "powered-by"}}</span>
-    <a href="https://caluma.io" target="blank" rel="noopener noreferrer"><img src="/assets/caluma-logo.png" alt={{t "caluma"}}></a>
+    <span class="uk-text-nowrap uk-margin-small-right">{{t "header.powered-by"}}</span>
+    <a href="https://caluma.io" target="blank" rel="noopener noreferrer"><img src="/assets/caluma-logo.png" alt={{t "header.caluma-logo"}}></a>
   </div>
 
   {{#if this.session.isAuthenticated}}
     <ul class="uk-subnav uk-subnav-divider">
       <LinkTo @route="admin.index" @activeClass="uk-active">
-        <LinkTo @route="admin.index">{{t "admin"}}</LinkTo>
+        <LinkTo @route="admin.index">{{t "nav.admin"}}</LinkTo>
       </LinkTo>
       <LinkTo @route="admin.form-builder" @activeClass="uk-active">
-        <LinkTo @route="admin.form-builder">{{t "forms"}}</LinkTo>
+        <LinkTo @route="admin.form-builder">{{t "nav.forms"}}</LinkTo>
       </LinkTo>
-      <li><a href="" {{on "click" this.logout}}>{{t "logout"}}</a></li>
+      <li><a href="" {{on "click" this.logout}}>{{t "nav.logout"}}</a></li>
     </ul>
   {{/if}}
 </header>

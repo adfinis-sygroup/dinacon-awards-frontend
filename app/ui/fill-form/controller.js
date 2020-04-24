@@ -1,10 +1,15 @@
 import Controller from "@ember/controller";
+import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
 import { decodeId } from "ember-caluma/helpers/decode-id";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 import gql from "graphql-tag";
 
-export default class NominationController extends Controller {
+export default class FillFormController extends Controller {
+  queryParams = ["accessKey"];
+
+  @service session;
+
   @queryManager apollo;
 
   @lastValue("fetchCase") case;
@@ -22,6 +27,7 @@ export default class NominationController extends Controller {
                 document {
                   id
                 }
+                meta
                 workItems {
                   edges {
                     node {
@@ -41,6 +47,12 @@ export default class NominationController extends Controller {
       },
       "node"
     );
+  }
+
+  get inviteLink() {
+    if (!this.session.isAuthenticated || !this.case) return null;
+
+    return `${location.origin}${location.pathname}?${this.case.meta.accessKey}`;
   }
 
   get documentId() {

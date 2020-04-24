@@ -37,6 +37,12 @@ module.exports = function (environment) {
       afterLogoutUri: "/",
       forwardParams: ["kc_idp_hint"],
     },
+
+    "ember-uikit": {
+      notification: {
+        pos: "bottom-right",
+      },
+    },
   };
 
   if (environment === "development") {

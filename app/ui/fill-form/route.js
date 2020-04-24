@@ -1,6 +1,6 @@
 import Route from "@ember/routing/route";
 
-export default class NominationRoute extends Route {
+export default class FillFormRoute extends Route {
   model({ case_id }) {
     return case_id;
   }

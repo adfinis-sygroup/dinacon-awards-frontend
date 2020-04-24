@@ -1,7 +1,8 @@
 import Controller from "@ember/controller";
+import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
-import Nomination from "dinacon-awards/lib/nomination";
 import { queryManager } from "ember-apollo-client";
+import { decodeId } from "ember-caluma/helpers/decode-id";
 import { timeout } from "ember-concurrency";
 import {
   dropTask,
@@ -9,11 +10,18 @@ import {
   lastValue,
 } from "ember-concurrency-decorators";
 import gql from "graphql-tag";
+import UIkit from "uikit";
+
+import Case from "dinacon-awards/lib/case";
+import generateAccessKey from "dinacon-awards/utils/generate-access-key";
 
 export default class AdminIndexController extends Controller {
-  @queryManager apollo;
-
   queryParams = ["type", "category", "search"];
+
+  @service intl;
+  @service notification;
+
+  @queryManager apollo;
 
   @tracked type = "nomination";
   @tracked search = "";
@@ -104,7 +112,12 @@ export default class AdminIndexController extends Controller {
         variables: {
           filter: [
             { workflow: this.type },
-            { status: "COMPLETED" },
+            {
+              status: [
+                "COMPLETED",
+                ...(this.type === "application" ? ["RUNNING"] : []),
+              ],
+            },
             ...(this.search
               ? [
                   {
@@ -143,7 +156,54 @@ export default class AdminIndexController extends Controller {
       "allCases.edges"
     );
 
-    return edges.map(({ node }) => new Nomination(node));
+    return edges.map(({ node }) => new Case(node));
+  }
+
+  @dropTask
+  *createApplication(nominationId, event) {
+    event.preventDefault();
+
+    try {
+      yield UIkit.modal.confirm(this.intl.t("admin.application-confirm"), {
+        labels: {
+          ok: this.intl.t("global.yes"),
+          cancel: this.intl.t("global.no"),
+        },
+      });
+    } catch (error) {
+      return; // confirmation denied
+    }
+
+    try {
+      const caseId = yield this.apollo.mutate(
+        {
+          mutation: gql`
+            mutation($input: SaveCaseInput!) {
+              saveCase(input: $input) {
+                case {
+                  id
+                }
+              }
+            }
+          `,
+          variables: {
+            input: {
+              workflow: "application",
+              form: "application",
+              meta: JSON.stringify({
+                nominationId,
+                accessKey: generateAccessKey(),
+              }),
+            },
+          },
+        },
+        "saveCase.case.id"
+      );
+
+      yield this.transitionToRoute("fill-form", decodeId(caseId));
+    } catch (error) {
+      this.notification.danger(this.intl.t("admin.application-error"));
+    }
   }
 
   @restartableTask

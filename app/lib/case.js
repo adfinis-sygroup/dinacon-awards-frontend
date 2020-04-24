@@ -27,7 +27,7 @@ function answer(slug, { label = true } = {}) {
   };
 }
 
-export default class Nomination {
+export default class Case {
   constructor(raw) {
     this.id = decodeId(raw.id);
     this.answers = raw.document.answers.edges.map(({ node }) => node);

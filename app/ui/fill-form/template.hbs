@@ -1,0 +1,15 @@
+{{#if this.inviteLink}}
+  <div class="uk-alert-primary" uk-alert>
+    <a href="" class="uk-alert-close" uk-close></a>
+    {{!-- template-lint-disable no-triple-curlies --}}
+    <p>{{{t "admin.invite" link=this.inviteLink}}}</p>
+</div>
+{{/if}}
+
+{{#if this.documentId}}
+  <CfContent
+    @documentId={{this.documentId}}
+    @disabled={{not this.canFillForm}}
+    @context={{this.context}}
+  />
+{{/if}}

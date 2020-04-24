@@ -1,11 +1,31 @@
-nominate: "Nominate a project"
-all-categories: "All categories"
-search: "Search..."
-admin: "Admin"
-forms: "Forms"
-logout: "Logout"
-empty: "No entries found"
-powered-by: "powered by"
+global:
+  yes: "Ok"
+  no: "Cancel"
+
 types:
   nomination: "Nominations"
   application: "Applications"
+
+header:
+  caluma-logo: "Caluma Logo"
+  dinacon-logo: "DINAcon Logo"
+  powered-by: "powered by"
+
+nav:
+  admin: "Admin"
+  forms: "Forms"
+  logout: "Logout"
+
+index:
+  nominate: "Nominate a project"
+  nominate-error: "Error while starting the nomination"
+
+admin:
+  empty: "No entries found"
+  search: "Search..."
+  all-categories: "All categories"
+  invite: "Invite people to complete this application with the following link: <strong>{link}</strong>"
+
+  application:
+    create-confirm: "Do you really want to start an official application for this nomination?"
+    create-error: "Error while starting the official application"

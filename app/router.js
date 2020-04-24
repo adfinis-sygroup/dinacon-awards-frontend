@@ -10,8 +10,9 @@ export default class Router extends EmberRouter {
 /* eslint-disable-next-line array-callback-return */
 Router.map(function () {
   this.route("login");
-  this.route("nomination", { path: "/nomination/:case_id" }, function () {});
-  this.route("nomination-complete");
+
+  this.route("fill-form", { path: "/fill-form/:case_id" });
+  this.route("complete", { path: "/fill-form/complete" });
 
   this.route("admin", function () {
     this.mount("ember-caluma", {

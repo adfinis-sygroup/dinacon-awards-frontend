@@ -1,25 +1,28 @@
 import { inject as service } from "@ember/service";
+import { setContext } from "apollo-link-context";
 import { onError } from "apollo-link-error";
 import ApolloService from "ember-apollo-client/services/apollo";
 import CalumaApolloServiceMixin from "ember-caluma/mixins/caluma-apollo-service-mixin";
-import { handleUnauthorized } from "ember-simple-auth-oidc";
 
 export default class CustomApolloServices extends ApolloService.extend(
   CalumaApolloServiceMixin
 ) {
   @service session;
 
-  link() {
-    const httpLink = super.link();
+  link(...args) {
+    const httpLink = super.link(...args);
+
+    const middleware = setContext((_, context) => ({
+      ...context,
+      headers: { ...context.headers, ...this.session.headers },
+    }));
 
     const afterware = onError((error) => {
-      const { networkError } = error;
-
-      if (networkError && networkError.statusCode === 401) {
-        handleUnauthorized(this.session);
+      if (error.networkError && error.networkError.statusCode === 401) {
+        this.session.handleUnauthorized();
       }
     });
 
-    return afterware.concat(httpLink);
+    return middleware.concat(afterware).concat(httpLink);
   }
 }
