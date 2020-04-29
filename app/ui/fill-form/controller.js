@@ -1,16 +1,20 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
+import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { decodeId } from "ember-caluma/helpers/decode-id";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 import gql from "graphql-tag";
 
 export default class FillFormController extends Controller {
-  queryParams = ["accessKey"];
+  queryParams = ["accessKey", "displayedForm"];
 
   @service session;
 
   @queryManager apollo;
+
+  @tracked accessKey = null;
+  @tracked displayedForm = null;
 
   @lastValue("fetchCase") case;
 

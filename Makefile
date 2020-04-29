@@ -4,7 +4,7 @@
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort -k 1,1 | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-dumpconfig: Dump the caluma config into fixtures
+dumpconfig: ## Dump the caluma config into fixtures
 	@docker-compose exec caluma python manage.py dumpdata \
 		caluma_form.Form \
 		caluma_form.Question \

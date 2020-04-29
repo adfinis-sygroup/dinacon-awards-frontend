@@ -16,6 +16,12 @@ index:
   nominate: "Nominate a project"
   nominate-error: "Error while starting the nomination"
 
+complete:
+  title: "Thank you!"
+  subtitle: "Your nomination was successfully submitted"
+  home: "Take me back to the homepage"
+  stamp: "Document with stamp"
+
 admin:
   empty: "No entries found"
   search: "Search..."

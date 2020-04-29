@@ -2,39 +2,64 @@ from caluma.caluma_core.events import on
 from caluma.caluma_workflow.events import created_case
 from caluma.caluma_workflow.schema import SaveCase
 from caluma.caluma_workflow.models import Case
-from caluma.caluma_form.models import Answer
+from caluma.caluma_form.models import Answer, Form
 
+QUESTIONS = [
+    "project-name",
+    "name",
+    "email",
+    "location",
+    "website",
+    "category",
+    "reason",
+    "start-year",
+]
 
-QUESTION_MAP = {
+OVERRIDE_QUESTIONS = {
     "contact-name": "name",
     "contact-email": "email",
 }
-
-SKIP_SLUGS = list(QUESTION_MAP.values())
-MAP_SLUGS = list(QUESTION_MAP.keys())
 
 
 @on(created_case, sender=SaveCase)
 def copy_answers_from_nomination(sender, case, **kwargs):
     if case.workflow.slug == "application" and case.meta.get("nominationId"):
         nomination = Case.objects.get(pk=case.meta.get("nominationId"))
-        questions = list(case.document.form.questions.values_list("pk", flat=True))
-        part_of_project = nomination.document.answers.filter(
-            value="part-of-project-yes"
-        ).exists()
+        answers = nomination.document.answers
+        override = answers.filter(value="part-of-the-project-no").exists()
 
-        if not part_of_project:
-            questions += MAP_SLUGS
+        for answer in answers.filter(question_id__in=QUESTIONS):
+            copy_answer(answer, case.document.pk)
 
-        for answer in nomination.document.answers.filter(question_id__in=questions):
-            question = answer.question_id
+        if override:
+            for answer in answers.filter(
+                question_id__in=list(OVERRIDE_QUESTIONS.keys())
+            ):
+                copy_answer(
+                    answer,
+                    case.document.pk,
+                    OVERRIDE_QUESTIONS.get(answer.question_id),
+                    True,
+                )
 
-            if not part_of_project and question in SKIP_SLUGS:
-                continue
 
-            if not part_of_project and question in MAP_SLUGS:
-                answer.question_id = QUESTION_MAP.get(question)
+def copy_answer(
+    source_answer, target_document_id, target_question_id=None, override=False
+):
+    filters = {
+        "document_id": target_document_id,
+        "question_id": target_question_id or source_answer.question_id,
+    }
+    values = {
+        "value": source_answer.value,
+        "meta": source_answer.meta,
+        "date": source_answer.date,
+        "file": source_answer.file,
+    }
 
-            answer.pk = None
-            answer.document = case.document
-            answer.save()
+    if override:
+        Answer.objects.update_or_create(
+            **filters, defaults=values,
+        )
+    elif not Answer.objects.filter(**filters).exists():
+        Answer.objects.create(**filters, **values)
