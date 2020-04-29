@@ -1,4 +1,4 @@
-FROM projectcaluma/caluma:version-5.5.2
+FROM projectcaluma/caluma:version-5.6.0
 
 ENV LANGUAGE=en
 ENV LANGUAGES=en
