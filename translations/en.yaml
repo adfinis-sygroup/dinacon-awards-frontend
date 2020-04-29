@@ -18,7 +18,7 @@ index:
 
 complete:
   title: "Thank you!"
-  subtitle: "Your nomination was successfully submitted"
+  subtitle: "Your {type} was successfully submitted"
   home: "Take me back to the homepage"
   stamp: "Document with stamp"
 
@@ -36,3 +36,4 @@ admin:
     create-confirm: "Do you really want to start an official application for this nomination?"
     create-error: "Error while starting the official application"
     invite: "Invite people to complete this application with the following link: <strong>{link}</strong>"
+    pending: "Pending"

@@ -52,6 +52,9 @@
               >
                 {{case.projectName}} ({{case.startYear}})
               </LinkTo>
+              {{#if (eq case.status "RUNNING")}}
+                <UkLabel class="uk-margin-small-right" @color="danger" @label={{t "admin.application.pending"}} />
+              {{/if}}
               <UkLabel @color="success" @label={{case.category}} />
             </span>
             <div uk-grid class="uk-grid-small">
@@ -67,20 +70,20 @@
                       {{case.website}}
                     </a>
                   </li>
-                  {{#if (eq case.partOfProject "part-of-the-project-yes")}}
-                    <li>
-                      <a class="uk-link-text" href="mailto:{{case.email}}">
-                        <UkIcon @icon="user" />
-                        {{case.name}}
-                        &lt;{{case.email}}&gt;
-                      </a>
-                    </li>
-                  {{else}}
+                  {{#if (eq case.partOfProject "part-of-the-project-no")}}
                     <li>
                       <a class="uk-link-text" href="mailto:{{case.contactEmail}}">
                         <UkIcon @icon="user" />
                         {{case.contactName}}
                         &lt;{{case.contactEmail}}&gt;
+                      </a>
+                    </li>
+                  {{else}}
+                    <li>
+                      <a class="uk-link-text" href="mailto:{{case.email}}">
+                        <UkIcon @icon="user" />
+                        {{case.name}}
+                        &lt;{{case.email}}&gt;
                       </a>
                     </li>
                   {{/if}}

@@ -954,6 +954,34 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "submit-application-button",
+    "fields": {
+      "created_at": "2020-04-29T15:33:56.475Z",
+      "modified_at": "2020-04-29T15:33:56.475Z",
+      "created_by_user": "user",
+      "created_by_group": null,
+      "label": "{\"en\": \"Submit application\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"en\": null}",
+      "info_text": "{\"en\": null}",
+      "static_content": "{\"en\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "complete-workitem-button",
+        "routeAfterSuccess": "/fill-form/complete?type=application"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "submit-nomination-button",
     "fields": {
       "created_at": "2020-04-20T14:01:18.640Z",
@@ -971,7 +999,7 @@
       "configuration": {},
       "meta": {
         "widgetOverride": "complete-workitem-button",
-        "routeAfterSuccess": "/fill-form/complete"
+        "routeAfterSuccess": "/fill-form/complete?type=nomination"
       },
       "data_source": null,
       "row_form": null,
@@ -1669,7 +1697,7 @@
       "created_by_group": null,
       "form": "application-step-4",
       "question": "additional-documents",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -1774,6 +1802,19 @@
       "form": "application-step-4",
       "question": "social-impact",
       "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "application-step-4.submit-application-button",
+    "fields": {
+      "created_at": "2020-04-29T15:33:56.529Z",
+      "modified_at": "2020-04-29T15:33:56.529Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "application-step-4",
+      "question": "submit-application-button",
+      "sort": 1
     }
   },
   {

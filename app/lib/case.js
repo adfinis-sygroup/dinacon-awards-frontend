@@ -30,6 +30,7 @@ function answer(slug, { label = true } = {}) {
 export default class Case {
   constructor(raw) {
     this.id = decodeId(raw.id);
+    this.status = raw.status;
     this.answers = raw.document.answers.edges.map(({ node }) => node);
   }
 

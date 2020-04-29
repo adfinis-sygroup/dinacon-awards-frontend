@@ -75,6 +75,7 @@ export default class AdminIndexController extends Controller {
               edges {
                 node {
                   id
+                  status
                   document {
                     id
                     answers(questions: $questions) {
