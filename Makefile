@@ -1,12 +1,10 @@
-.PHONY: help dump-config dump-form-config dump-workflow-config load-config load-form-config load-workflow-config flush dbshell
+.PHONY: help dumpconfig loadconfig flush dbshell
 .DEFAULT_GOAL := help
 
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort -k 1,1 | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-dump-config: dump-form-config dump-workflow-config ## Dump the caluma config into fixtures
-
-dump-form-config: ## Dump the caluma form config into a fixture
+dumpconfig: Dump the caluma config into fixtures
 	@docker-compose exec caluma python manage.py dumpdata \
 		caluma_form.Form \
 		caluma_form.Question \
@@ -14,8 +12,6 @@ dump-form-config: ## Dump the caluma form config into a fixture
 		caluma_form.QuestionOption \
 		caluma_form.FormQuestion \
 		| prettier --parser=json > caluma/fixtures/form.json
-
-dump-workflow-config: ## Dump the caluma workflow config into a fixture
 	@docker-compose exec caluma python manage.py dumpdata \
 		caluma_workflow.Workflow \
 		caluma_workflow.Task \
@@ -23,12 +19,8 @@ dump-workflow-config: ## Dump the caluma workflow config into a fixture
 		caluma_workflow.TaskFlow \
 		| prettier --parser=json > caluma/fixtures/workflow.json
 
-load-config: load-form-config load-workflow-config ## Load the caluma config into the DB
-
-load-form-config: ## Load the caluma form config into the DB
+loadconfig: ## Load the caluma config into the DB
 	@docker-compose exec caluma python manage.py loaddata caluma/fixtures/form.json
-
-load-workflow-config: ## Load the caluma workflow config into the DB
 	@docker-compose exec caluma python manage.py loaddata caluma/fixtures/workflow.json
 
 flush: ## Flush the caluma DB
