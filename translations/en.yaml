@@ -2,10 +2,6 @@ global:
   yes: "Ok"
   no: "Cancel"
 
-types:
-  nomination: "Nominations"
-  application: "Applications"
-
 header:
   caluma-logo: "Caluma Logo"
   dinacon-logo: "DINAcon Logo"
@@ -24,8 +20,13 @@ admin:
   empty: "No entries found"
   search: "Search..."
   all-categories: "All categories"
-  invite: "Invite people to complete this application with the following link: <strong>{link}</strong>"
+
+  types:
+    nomination: "Nominations"
+    application: "Applications"
 
   application:
+    create: "Start official application"
     create-confirm: "Do you really want to start an official application for this nomination?"
     create-error: "Error while starting the official application"
+    invite: "Invite people to complete this application with the following link: <strong>{link}</strong>"

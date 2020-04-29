@@ -725,7 +725,7 @@
       "configuration": {},
       "meta": {
         "widgetOverride": "complete-workitem-button",
-        "routeAfterSuccess": "nomination-complete"
+        "routeAfterSuccess": "/fill-form/complete"
       },
       "data_source": null,
       "row_form": null,

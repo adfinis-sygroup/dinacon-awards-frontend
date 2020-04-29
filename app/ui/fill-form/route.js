@@ -10,4 +10,12 @@ export default class FillFormRoute extends Route {
 
     controller.fetchCase.perform();
   }
+
+  resetController(controller, isExiting, transition) {
+    super.resetController(controller, isExiting, transition);
+
+    if (isExiting) {
+      controller.fetchCase.cancelAll({ resetState: true });
+    }
+  }
 }

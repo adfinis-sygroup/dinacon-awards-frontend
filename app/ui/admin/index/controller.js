@@ -164,12 +164,15 @@ export default class AdminIndexController extends Controller {
     event.preventDefault();
 
     try {
-      yield UIkit.modal.confirm(this.intl.t("admin.application-confirm"), {
-        labels: {
-          ok: this.intl.t("global.yes"),
-          cancel: this.intl.t("global.no"),
-        },
-      });
+      yield UIkit.modal.confirm(
+        this.intl.t("admin.application.create-confirm"),
+        {
+          labels: {
+            ok: this.intl.t("global.yes"),
+            cancel: this.intl.t("global.no"),
+          },
+        }
+      );
     } catch (error) {
       return; // confirmation denied
     }
@@ -202,7 +205,7 @@ export default class AdminIndexController extends Controller {
 
       yield this.transitionToRoute("fill-form", decodeId(caseId));
     } catch (error) {
-      this.notification.danger(this.intl.t("admin.application-error"));
+      this.notification.danger(this.intl.t("admin.application.create-error"));
     }
   }
 

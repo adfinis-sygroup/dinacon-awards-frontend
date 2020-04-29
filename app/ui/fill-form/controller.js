@@ -24,6 +24,9 @@ export default class FillFormController extends Controller {
               ... on Case {
                 id
                 status
+                workflow {
+                  slug
+                }
                 document {
                   id
                 }
@@ -50,9 +53,15 @@ export default class FillFormController extends Controller {
   }
 
   get inviteLink() {
-    if (!this.session.isAuthenticated || !this.case) return null;
+    if (
+      !this.session.isAuthenticated ||
+      !this.case ||
+      !this.case.meta.accessKey
+    ) {
+      return null;
+    }
 
-    return `${location.origin}${location.pathname}?${this.case.meta.accessKey}`;
+    return `${location.origin}${location.pathname}?accessKey=${this.case.meta.accessKey}`;
   }
 
   get documentId() {
@@ -69,7 +78,14 @@ export default class FillFormController extends Controller {
   }
 
   get canFillForm() {
-    return this.activeWorkItem && this.activeWorkItem.task.slug === "fill-form";
+    return (
+      this.activeWorkItem &&
+      this.activeWorkItem.task.slug === "fill-form" &&
+      this.case &&
+      (this.case.workflow.slug === "nomination" ||
+        this.session.isAuthenticated ||
+        this.accessKey)
+    );
   }
 
   get context() {
