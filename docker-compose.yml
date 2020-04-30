@@ -2,9 +2,13 @@ version: "3.4"
 
 services:
   frontend:
-    # image: adfinis-sygroup/dinacon-awards
+    image: adfinissygroup/dinacon-awards-frontend
     build:
       context: .
+      cache_from:
+        - danlynn/ember-cli
+        - nginx
+        - adfinissygroup/dinacon-awards-frontend
     depends_on:
       - caluma
       - keycloak
@@ -19,7 +23,12 @@ services:
       - dbdata:/var/lib/postgresql/data
 
   caluma:
-    build: caluma
+    image: adfinis-sygroup/dinacon-awards-caluma
+    build:
+      context: caluma
+      cache_from:
+        - projectcaluma/caluma
+        - adfinissygroup/dinacon-awards-caluma
     environment:
       - DATABASE_HOST=db
       - DATABASE_NAME=dinacon_awards
@@ -45,9 +54,6 @@ services:
     image: minio/minio:latest
     volumes:
       - minio_data:/data
-    ports:
-      - "9000:9000"
-    command: server data
 
 volumes:
   dbdata:
