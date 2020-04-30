@@ -12,7 +12,9 @@ $global-secondary-background: #ffa999;
 @import "ember-uikit";
 @import "ember-caluma";
 
+@import "footer";
 @import "header";
+@import "timeline";
 
 .uk-text-bold {
   font-weight: $base-strong-font-weight;

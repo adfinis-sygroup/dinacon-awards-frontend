@@ -24,3 +24,39 @@
 <main class="uk-container uk-margin-large-top uk-margin-large-bottom">
   {{outlet}}
 </main>
+
+<footer class="footer uk-padding-large uk-padding-remove-horizontal">
+  <div class="uk-container">
+    <p class="uk-text-center uk-text-uppercase uk-margin-large-bottom">{{t "footer.timeline.title"}}</p>
+    <Timeline as |Entry|>
+      <Entry
+        @title={{t "footer.timeline.title1"}}
+        @date={{t "footer.timeline.date1"}}
+      />
+
+      <Entry
+        @title={{t "footer.timeline.title2"}}
+        @date={{t "footer.timeline.date2"}}
+        @body={{t "footer.timeline.body2"}}
+      />
+
+      <Entry
+        @title={{t "footer.timeline.title3"}}
+        @date={{t "footer.timeline.date3"}}
+        @body={{t "footer.timeline.body3"}}
+      />
+
+      <Entry
+        @title={{t "footer.timeline.title4"}}
+        @date={{t "footer.timeline.date4"}}
+        @body={{t "footer.timeline.body4"}}
+      />
+
+      <Entry
+        @title={{t "footer.timeline.title5"}}
+        @date={{t "footer.timeline.date5"}}
+        @body={{t "footer.timeline.body5"}}
+      />
+    </Timeline>
+  </div>
+</footer>

@@ -37,3 +37,26 @@ admin:
     create-error: "Error while starting the official application"
     invite: "Invite people to complete this application with the following link: <strong>{link}</strong>"
     pending: "Pending"
+
+footer:
+  timeline:
+    title: "How will the process look like until the winners will be awarded at DINAcon 2020 on the 23. of October?"
+
+    title1: "End of the nomination phase"
+    date1: "15. June 2020"
+
+    title2: "Closing of application process"
+    date2: "30. June 2020"
+    body2: "We might contact you for additional information if we have questions or if we are curious about your great project."
+
+    title3: "Jury shortlist nomination"
+    date3: "1. September 2020"
+    body3: "Our jury will nominate 3 finalists per category out of all the applicants - you will be informed about our decision.\n\nIf you are one of the final candidates you will be invited to the DINAcon - conference. Be ready for this great networking platform, for interesting talks, exciting sessions and a fun time!"
+
+    title4: "Showcase"
+    date4: "September / October 2020"
+    body4: "We want to show some awesome projects to our conference guests before the award ceremony - so if you would like to use this additional publicity for your project we’d love to create a short promotional clip with you!"
+
+    title5: "DINAcon"
+    date5: "23. October 2020"
+    body5: "DINAcon at Welle7 in Bern - be ready, start cooling your champagne and use your chance to be the winner of the DINAcon Awards 2020!"
