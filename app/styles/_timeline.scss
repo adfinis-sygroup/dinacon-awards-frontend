@@ -16,12 +16,12 @@ $timeline-background: rgb(44, 44, 44); // footer background
 }
 
 .timeline__entry__date__container {
-  flex: 1 1 35%;
+  flex: 1 1 30%;
   border-width: 0 1px 0 0;
 }
 
 .timeline__entry__card__container {
-  flex: 1 1 75%;
+  flex: 1 1 70%;
   border-width: 0 0 0 1px;
 }
 
@@ -32,8 +32,8 @@ $timeline-background: rgb(44, 44, 44); // footer background
 }
 
 .timeline__entry__card {
-  padding: 2rem;
-  margin: 2rem;
+  padding: 1rem;
+  margin: 1rem;
   border: 1px solid $timeline-border-color;
   background-image: linear-gradient(
     -45deg,
@@ -47,9 +47,10 @@ $timeline-background: rgb(44, 44, 44); // footer background
 }
 
 .timeline__entry__date {
-  margin: 4rem 2rem 0;
+  margin: 2rem 1rem 0;
   position: relative;
   text-transform: uppercase;
+  word-break: break-all;
 }
 
 .timeline__entry__card__header {
@@ -80,8 +81,8 @@ $timeline-background: rgb(44, 44, 44); // footer background
 
 .timeline__entry__card__body {
   border-top: 1px solid rgba(255, 255, 255, 0.5);
-  padding-top: 1rem;
-  margin-top: 1rem;
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .timeline__entry .timeline__entry__date__container {
@@ -91,7 +92,7 @@ $timeline-background: rgb(44, 44, 44); // footer background
 .timeline__entry.timeline__entry {
   .timeline__entry__date::before,
   .timeline__entry__date::after {
-    right: -2rem;
+    right: -1rem;
   }
   .timeline__entry__date::before {
     transform: translate(0.45rem, -50%);
@@ -102,6 +103,20 @@ $timeline-background: rgb(44, 44, 44); // footer background
 }
 
 @media only screen and (min-width: $breakpoint-medium) {
+  .timeline__entry__card {
+    padding: 2rem;
+    margin: 2rem;
+  }
+
+  .timeline__entry__date {
+    margin: 4rem 2rem 0;
+  }
+
+  .timeline__entry__card__body {
+    padding-top: 1rem;
+    margin-top: 1rem;
+  }
+
   .timeline__entry__date__container,
   .timeline__entry__card__container {
     flex: 1 1 50%;
