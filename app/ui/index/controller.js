@@ -37,7 +37,7 @@ export default class IndexController extends Controller {
 
       this.transitionToRoute("fill-form", decodeId(caseId));
     } catch (error) {
-      this.notification.danger(this.intl.t("index.nomination-error"));
+      this.notification.danger(this.intl.t("index.nominate-error"));
     }
   }
 }
