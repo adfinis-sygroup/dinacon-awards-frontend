@@ -7,6 +7,7 @@ module.exports = function (environment) {
     rootURL: "/",
     locationType: "auto",
     podModulePrefix: "dinacon-awards/ui",
+    historySupportMiddleware: true,
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
