@@ -25,7 +25,7 @@
     </select>
   </div>
 
-  <div class="uk-text-right uk-width-expand">
+  <div>
     <div class="uk-button-group">
       {{#each this.types as |type|}}
         <UkButton @color={{if (eq type this.type) "primary" "default"}} @on-click={{fn (mut this.type) type}}>{{t (concat "admin.types." type)}}</UkButton>

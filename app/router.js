@@ -20,4 +20,6 @@ Router.map(function () {
       path: "/form-builder",
     });
   });
+
+  this.route("notfound", { path: "/*path" });
 });

@@ -60,3 +60,9 @@ footer:
     title5: "DINAcon"
     date5: "23. October 2020"
     body5: "DINAcon at Welle7 in Bern - be ready, start cooling your champagne and use your chance to be the winner of the DINAcon Awards 2020!"
+
+notfound:
+  title: "404 - Page not found!"
+  subtitle: "There's nothing to see here..."
+  back: "Take me back to the homepage"
+  windmill: "Windmill"
