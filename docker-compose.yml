@@ -23,7 +23,7 @@ services:
       - dbdata:/var/lib/postgresql/data
 
   caluma:
-    image: adfinis-sygroup/dinacon-awards-caluma
+    image: adfinissygroup/dinacon-awards-caluma
     build:
       context: caluma
       cache_from:
