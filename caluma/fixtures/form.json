@@ -307,7 +307,7 @@
     "pk": "application-title-1",
     "fields": {
       "created_at": "2020-04-20T13:00:09.064Z",
-      "modified_at": "2020-04-29T13:33:37.875Z",
+      "modified_at": "2020-05-12T12:17:59.315Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"en\": \"\"}",
@@ -317,7 +317,7 @@
       "is_archived": false,
       "placeholder": "{\"en\": null}",
       "info_text": "{\"en\": \"\"}",
-      "static_content": "{\"en\": \"### This was the information that were given to us when your project was first nominated\"}",
+      "static_content": "{\"en\": \"### This was the information that were given to us when your project was first nominated\\n\\nPlease check the information and correct it if necessary.\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -332,7 +332,7 @@
     "pk": "application-title-2",
     "fields": {
       "created_at": "2020-04-20T13:01:52.604Z",
-      "modified_at": "2020-04-29T13:34:02.596Z",
+      "modified_at": "2020-05-12T14:07:31.536Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"en\": \"\"}",
@@ -342,7 +342,7 @@
       "is_archived": false,
       "placeholder": "{\"en\": null}",
       "info_text": "{\"en\": \"\"}",
-      "static_content": "{\"en\": \"### Please give us some context\"}",
+      "static_content": "{\"en\": \"### Help us to get to know your project further\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -357,7 +357,7 @@
     "pk": "application-title-3",
     "fields": {
       "created_at": "2020-04-20T13:04:32.147Z",
-      "modified_at": "2020-04-29T13:34:15.116Z",
+      "modified_at": "2020-05-12T14:07:49.218Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"en\": \"\"}",
@@ -367,7 +367,7 @@
       "is_archived": false,
       "placeholder": "{\"en\": null}",
       "info_text": "{\"en\": \"\"}",
-      "static_content": "{\"en\": \"### Help us to get to know your project further\"}",
+      "static_content": "{\"en\": \"### Upload documents\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -482,16 +482,16 @@
     "pk": "contact-email",
     "fields": {
       "created_at": "2020-04-20T13:19:00.655Z",
-      "modified_at": "2020-04-20T13:19:00.655Z",
+      "modified_at": "2020-05-12T12:23:36.168Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"en\": \"Contact email address\"}",
+      "label": "{\"en\": \"Project email address\"}",
       "type": "text",
       "is_required": "true",
       "is_hidden": "!('part-of-the-project'|answer == 'part-of-the-project-no')",
       "is_archived": false,
-      "placeholder": "{\"en\": null}",
-      "info_text": "{\"en\": null}",
+      "placeholder": "{\"en\": \"\"}",
+      "info_text": "{\"en\": \"\"}",
       "static_content": "{\"en\": \"\"}",
       "configuration": { "max_length": null, "min_length": null },
       "meta": {},
@@ -507,16 +507,16 @@
     "pk": "contact-name",
     "fields": {
       "created_at": "2020-04-20T13:18:29.864Z",
-      "modified_at": "2020-04-20T13:18:29.864Z",
+      "modified_at": "2020-05-12T12:23:16.553Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"en\": \"Contact name\"}",
+      "label": "{\"en\": \"Contact name of a project member\"}",
       "type": "text",
       "is_required": "true",
       "is_hidden": "!('part-of-the-project'|answer == 'part-of-the-project-no')",
       "is_archived": false,
-      "placeholder": "{\"en\": null}",
-      "info_text": "{\"en\": null}",
+      "placeholder": "{\"en\": \"\"}",
+      "info_text": "{\"en\": \"\"}",
       "static_content": "{\"en\": \"\"}",
       "configuration": { "max_length": null, "min_length": null },
       "meta": {},
@@ -550,31 +550,6 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[\"email\"]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "founded-in",
-    "fields": {
-      "created_at": "2020-04-20T13:02:52.113Z",
-      "modified_at": "2020-04-20T13:10:48.839Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "label": "{\"en\": \"Founded in\"}",
-      "type": "integer",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"en\": \"\"}",
-      "info_text": "{\"en\": \"\"}",
-      "static_content": "{\"en\": \"\"}",
-      "configuration": { "max_value": 2020, "min_value": 1900 },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]"
     }
   },
   {
@@ -754,31 +729,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "official-project-name",
-    "fields": {
-      "created_at": "2020-04-20T13:02:23.943Z",
-      "modified_at": "2020-04-20T13:10:45.270Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "label": "{\"en\": \"Official project name\"}",
-      "type": "text",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"en\": \"\"}",
-      "info_text": "{\"en\": \"\"}",
-      "static_content": "{\"en\": \"\"}",
-      "configuration": { "max_length": null, "min_length": null },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "part-of-the-project",
     "fields": {
       "created_at": "2020-04-17T13:08:09.228Z",
@@ -932,10 +882,10 @@
     "pk": "start-year",
     "fields": {
       "created_at": "2020-04-17T13:17:12.628Z",
-      "modified_at": "2020-04-20T13:10:40.916Z",
+      "modified_at": "2020-05-12T12:12:04.771Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"en\": \"When did this project start?\"}",
+      "label": "{\"en\": \"In what year was this project founded?\"}",
       "type": "integer",
       "is_required": "true",
       "is_hidden": "false",
@@ -1624,14 +1574,14 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "application-step-3.additional-project-files",
+    "pk": "application-step-3.anything-else",
     "fields": {
-      "created_at": "2020-04-29T13:19:29.204Z",
-      "modified_at": "2020-04-29T13:19:29.204Z",
+      "created_at": "2020-05-12T14:05:18.988Z",
+      "modified_at": "2020-05-12T14:05:18.988Z",
       "created_by_user": null,
       "created_by_group": null,
       "form": "application-step-3",
-      "question": "additional-project-files",
+      "question": "anything-else",
       "sort": 1
     }
   },
@@ -1645,46 +1595,85 @@
       "created_by_group": null,
       "form": "application-step-3",
       "question": "application-title-2",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "application-step-3.commercial-relevance",
+    "fields": {
+      "created_at": "2020-05-12T14:04:55.926Z",
+      "modified_at": "2020-05-12T14:04:55.926Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "application-step-3",
+      "question": "commercial-relevance",
       "sort": 5
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "application-step-3.founded-in",
+    "pk": "application-step-3.commercial-relevance-other",
     "fields": {
-      "created_at": "2020-04-29T13:19:26.440Z",
-      "modified_at": "2020-04-29T13:19:26.440Z",
+      "created_at": "2020-05-12T14:04:57.840Z",
+      "modified_at": "2020-05-12T14:04:57.841Z",
       "created_by_user": null,
       "created_by_group": null,
       "form": "application-step-3",
-      "question": "founded-in",
+      "question": "commercial-relevance-other",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "application-step-3.commits",
+    "fields": {
+      "created_at": "2020-05-12T14:05:03.934Z",
+      "modified_at": "2020-05-12T14:05:03.934Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "application-step-3",
+      "question": "commits",
       "sort": 3
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "application-step-3.logo",
+    "pk": "application-step-3.project-maturity",
     "fields": {
-      "created_at": "2020-04-29T13:19:28.196Z",
-      "modified_at": "2020-04-29T13:19:28.196Z",
+      "created_at": "2020-05-12T14:04:48.107Z",
+      "modified_at": "2020-05-12T14:04:48.107Z",
       "created_by_user": null,
       "created_by_group": null,
       "form": "application-step-3",
-      "question": "logo",
-      "sort": 2
+      "question": "project-maturity",
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "application-step-3.official-project-name",
+    "pk": "application-step-3.short-description",
     "fields": {
-      "created_at": "2020-04-29T13:19:25.532Z",
-      "modified_at": "2020-04-29T13:19:25.533Z",
+      "created_at": "2020-05-12T14:04:52.062Z",
+      "modified_at": "2020-05-12T14:04:52.062Z",
       "created_by_user": null,
       "created_by_group": null,
       "form": "application-step-3",
-      "question": "official-project-name",
-      "sort": 4
+      "question": "short-description",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "application-step-3.social-impact",
+    "fields": {
+      "created_at": "2020-05-12T14:05:12.779Z",
+      "modified_at": "2020-05-12T14:05:12.779Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "application-step-3",
+      "question": "social-impact",
+      "sort": 2
     }
   },
   {
@@ -1702,14 +1691,14 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "application-step-4.anything-else",
+    "pk": "application-step-4.additional-project-files",
     "fields": {
-      "created_at": "2020-04-29T13:21:36.318Z",
-      "modified_at": "2020-04-29T13:21:36.318Z",
+      "created_at": "2020-05-12T14:06:29.388Z",
+      "modified_at": "2020-05-12T14:06:29.388Z",
       "created_by_user": null,
       "created_by_group": null,
       "form": "application-step-4",
-      "question": "anything-else",
+      "question": "additional-project-files",
       "sort": 3
     }
   },
@@ -1723,84 +1712,19 @@
       "created_by_group": null,
       "form": "application-step-4",
       "question": "application-title-3",
-      "sort": 10
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "application-step-4.commercial-relevance",
-    "fields": {
-      "created_at": "2020-04-29T13:21:20.165Z",
-      "modified_at": "2020-04-29T13:21:20.165Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "application-step-4",
-      "question": "commercial-relevance",
-      "sort": 7
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "application-step-4.commercial-relevance-other",
-    "fields": {
-      "created_at": "2020-04-29T13:21:23.267Z",
-      "modified_at": "2020-04-29T13:21:23.267Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "application-step-4",
-      "question": "commercial-relevance-other",
-      "sort": 6
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "application-step-4.commits",
-    "fields": {
-      "created_at": "2020-04-29T13:21:28.320Z",
-      "modified_at": "2020-04-29T13:21:28.320Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "application-step-4",
-      "question": "commits",
       "sort": 5
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "application-step-4.project-maturity",
+    "pk": "application-step-4.logo",
     "fields": {
-      "created_at": "2020-04-29T13:21:13.714Z",
-      "modified_at": "2020-04-29T13:21:13.714Z",
+      "created_at": "2020-05-12T14:06:26.084Z",
+      "modified_at": "2020-05-12T14:06:26.084Z",
       "created_by_user": null,
       "created_by_group": null,
       "form": "application-step-4",
-      "question": "project-maturity",
-      "sort": 9
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "application-step-4.short-description",
-    "fields": {
-      "created_at": "2020-04-29T13:21:15.510Z",
-      "modified_at": "2020-04-29T13:21:15.510Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "application-step-4",
-      "question": "short-description",
-      "sort": 8
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "application-step-4.social-impact",
-    "fields": {
-      "created_at": "2020-04-29T13:21:31.782Z",
-      "modified_at": "2020-04-29T13:21:31.782Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "application-step-4",
-      "question": "social-impact",
+      "question": "logo",
       "sort": 4
     }
   },
