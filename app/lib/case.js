@@ -1,6 +1,6 @@
 import { decodeId } from "ember-caluma/helpers/decode-id";
 
-function answer(slug, { label = true } = {}) {
+export function answer(slug, { label = true } = {}) {
   return function () {
     return {
       get() {

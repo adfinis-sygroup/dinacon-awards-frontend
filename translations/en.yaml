@@ -35,8 +35,9 @@ admin:
     create: "Start official application"
     create-confirm: "Do you really want to start an official application for this nomination?"
     create-error: "Error while starting the official application"
-    invite: "Invite people to complete this application with the following link: <strong>{link}</strong>"
+    invite: "Invite people to complete this application with the following link:"
     pending: "Pending"
+    export: "Export submitted applications into a CSV-file"
 
 footer:
   timeline:

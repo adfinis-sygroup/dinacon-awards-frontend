@@ -9,8 +9,11 @@ import {
   restartableTask,
   lastValue,
 } from "ember-concurrency-decorators";
+import { saveAs } from "file-saver";
 import gql from "graphql-tag";
 import UIkit from "uikit";
+
+import exportCSV from "./export";
 
 import Case from "dinacon-awards/lib/case";
 import generateAccessKey from "dinacon-awards/utils/generate-access-key";
@@ -215,5 +218,66 @@ export default class AdminIndexController extends Controller {
     yield timeout(500);
 
     this[key] = value;
+  }
+
+  @dropTask
+  *export(event) {
+    event.preventDefault();
+
+    const edges = yield this.apollo.query(
+      {
+        query: gql`
+          query {
+            allCases(
+              filter: [{ status: COMPLETED }, { workflow: "application" }]
+            ) {
+              edges {
+                node {
+                  id
+                  document {
+                    id
+                    answers {
+                      edges {
+                        node {
+                          id
+                          question {
+                            slug
+                            label
+                            ... on ChoiceQuestion {
+                              options {
+                                edges {
+                                  node {
+                                    slug
+                                    label
+                                  }
+                                }
+                              }
+                            }
+                          }
+                          ... on StringAnswer {
+                            stringValue: value
+                          }
+                          ... on IntegerAnswer {
+                            integerValue: value
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        `,
+      },
+      "allCases.edges"
+    );
+
+    saveAs(
+      new Blob([exportCSV(edges.map(({ node }) => node))], {
+        type: "text/csv;charset=utf-8;",
+      }),
+      "export.csv"
+    );
   }
 }

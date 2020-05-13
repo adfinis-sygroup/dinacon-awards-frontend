@@ -13,13 +13,13 @@ nav:
   logout: "Logout"
 
 index:
-  nominate: "Nominiere ein Projekt"
+  nominate: "Nominieren Sie ein Projekt"
   nominate-error: "Fehler beim Starten der Nominierung"
 
 complete:
   title: "Vielen Dank!"
-  subtitle: "Deine {type, select, nomination {Nominierung} application {Bewerbung} other {}} wurde erfolgreich eingereicht!"
-  home: "Bring mich zurück zur Startseite"
+  subtitle: "Ihre {type, select, nomination {Nominierung} application {Bewerbung} other {}} wurde erfolgreich eingereicht!"
+  home: "Bringen Sie mich zurück zur Startseite"
   stamp: "Dokument mit Stempel"
 
 admin:
@@ -35,8 +35,9 @@ admin:
     create: "Offizielle Bewerbung starten"
     create-confirm: "Wollen Sie wirklich eine offizielle Bewerbung für diese Nominierung starten?"
     create-error: "Fehler beim Starten der offiziellen Bewerbung"
-    invite: "Laden Sie Personen ein, diese Bewerbung mit dem folgenden Link auszufüllen: <strong>{link}</strong>"
+    invite: "Laden Sie Personen ein, diese Bewerbung mit dem folgenden Link auszufüllen:"
     pending: "Ausstehend"
+    export: "Eingereichte Bewerbungen als CSV-Datei exportieren"
 
 footer:
   timeline:
@@ -60,5 +61,5 @@ footer:
 notfound:
   title: "404 - Seite nicht gefunden!"
   subtitle: "Hier gibts nichts zu sehen..."
-  back: "Bring mich zurück zur Startseite"
+  back: "Bringen Sie mich zurück zur Startseite"
   windmill: "Windmühle"

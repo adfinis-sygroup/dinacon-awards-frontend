@@ -32,6 +32,20 @@
       {{/each}}
     </div>
   </div>
+
+  {{#if (eq this.type "application")}}
+    <div>
+      <button
+        type="button"
+        class="uk-icon-button"
+        uk-icon="download"
+        title={{t "admin.application.export"}}
+        {{on "click" (perform this.export)}}
+      >
+        <span class="uk-hidden">{{t "admin.application.export"}}</span>
+      </button>
+    </div>
+  {{/if}}
 </div>
 
 {{#if this.fetchCases.isRunning}}

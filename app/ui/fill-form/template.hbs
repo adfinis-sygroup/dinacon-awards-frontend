@@ -1,12 +1,14 @@
 {{#if this.fetchCase.isRunning}}
   <div class="uk-text-center"><UkSpinner @ratio={{2}} /></div>
 {{else if this.case}}
-  {{#if this.inviteLink}}
+  {{#if (and this.inviteLink (not this.accessKey))}}
     <div class="uk-alert-primary" uk-alert>
       <a href="" class="uk-alert-close" uk-close></a>
-      {{!-- template-lint-disable no-triple-curlies --}}
-      <p>{{{t "admin.application.invite" link=this.inviteLink}}}</p>
-  </div>
+      <p>
+        {{t "admin.application.invite"}}
+        <strong><a href={{this.inviteLink}} target="_blank" rel="noreferrer noopener">{{this.inviteLink}}</a></strong>
+      </p>
+    </div>
   {{/if}}
 
   {{#if this.documentId}}
