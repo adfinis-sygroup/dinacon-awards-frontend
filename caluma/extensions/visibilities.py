@@ -36,11 +36,11 @@ class CustomVisibility(BaseVisibility):
 
     @filter_queryset_for(Task)
     def filter_queryset_for_task(self, node, queryset, info):
-        return self._filter_queryset_for_authenticated(node, queryset, info)
+        return queryset
 
     @filter_queryset_for(Workflow)
     def filter_queryset_for_workflow(self, node, queryset, info):
-        return self._filter_queryset_for_authenticated(node, queryset, info)
+        return queryset
 
     @filter_queryset_for(Answer)
     def filter_queryset_for_answer(self, node, queryset, info):
