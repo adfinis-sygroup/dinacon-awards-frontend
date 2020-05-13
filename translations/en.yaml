@@ -18,7 +18,7 @@ index:
 
 complete:
   title: "Thank you!"
-  subtitle: "Your {type} was successfully submitted"
+  subtitle: "Your {type, select, nomination {nomination} application {application} other {}} was successfully submitted"
   home: "Take me back to the homepage"
   stamp: "Document with stamp"
 

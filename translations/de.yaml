@@ -1,0 +1,64 @@
+global:
+  yes: "Ok"
+  no: "Abbrechen"
+
+header:
+  caluma-logo: "Caluma Logo"
+  dinacon-logo: "DINAcon Logo"
+  powered-by: "powered by"
+
+nav:
+  admin: "Admin"
+  forms: "Formulare"
+  logout: "Logout"
+
+index:
+  nominate: "Nominiere ein Projekt"
+  nominate-error: "Fehler beim Starten der Nominierung"
+
+complete:
+  title: "Vielen Dank!"
+  subtitle: "Deine {type, select, nomination {Nominierung} application {Bewerbung} other {}} wurde erfolgreich eingereicht!"
+  home: "Bring mich zurück zur Startseite"
+  stamp: "Dokument mit Stempel"
+
+admin:
+  empty: "Keine Einträge gefunden"
+  search: "Suchen..."
+  all-categories: "Alle Kategorien"
+
+  types:
+    nomination: "Nominierungen"
+    application: "Bewerbungen"
+
+  application:
+    create: "Offizielle Bewerbung starten"
+    create-confirm: "Wollen Sie wirklich eine offizielle Bewerbung für diese Nominierung starten?"
+    create-error: "Fehler beim Starten der offiziellen Bewerbung"
+    invite: "Laden Sie Personen ein, diese Bewerbung mit dem folgenden Link auszufüllen: <strong>{link}</strong>"
+    pending: "Ausstehend"
+
+footer:
+  timeline:
+    # TODO
+    # title: "How will the process look like until the winners will be awarded at DINAcon 2020 on the 23. of October?"
+    # title1: "End of the nomination phase"
+    date1: "15. Juni 2020"
+    # title2: "Closing of application process"
+    date2: "30. Juni 2020"
+    # body2: "We might contact you for additional information if we have questions or if we are curious about your great project."
+    # title3: "Jury shortlist nomination"
+    date3: "1. September 2020"
+    # body3: "Our jury will nominate 3 finalists per category out of all the applicants - you will be informed about our decision.\n\nIf you are one of the final candidates you will be invited to the DINAcon - conference. Be ready for this great networking platform, for interesting talks, exciting sessions and a fun time!"
+    # title4: "Showcase"
+    date4: "September / Oktober 2020"
+    # body4: "We want to show some awesome projects to our conference guests before the award ceremony - so if you would like to use this additional publicity for your project we’d love to create a short promotional clip with you!"
+    title5: "DINAcon"
+    date5: "23. October 2020"
+    # body5: "DINAcon at Welle7 in Berne - be ready, start cooling your champagne and use your chance to be the winner of the DINAcon Awards 2020!"
+
+notfound:
+  title: "404 - Seite nicht gefunden!"
+  subtitle: "Hier gibts nichts zu sehen..."
+  back: "Bring mich zurück zur Startseite"
+  windmill: "Windmühle"
