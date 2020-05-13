@@ -8,8 +8,13 @@
     <a href="https://caluma.io" target="blank" rel="noopener noreferrer"><img src="/assets/caluma-logo.png" alt={{t "header.caluma-logo"}}></a>
   </div>
 
-  {{#if this.session.isAuthenticated}}
-    <ul class="uk-subnav uk-subnav-divider">
+  <ul class="uk-subnav uk-subnav-divider">
+    {{#each this.languages as |language|}}
+      <li class={{if (eq this.intl.primaryLocale language) "uk-active"}}>
+        <a href="" {{on "click" (fn this.setLanguage language)}}>{{language}}</a>
+      </li>
+    {{/each}}
+    {{#if this.session.isAuthenticated}}
       <LinkTo @route="admin.index" @activeClass="uk-active">
         <LinkTo @route="admin.index">{{t "nav.admin"}}</LinkTo>
       </LinkTo>
@@ -17,8 +22,8 @@
         <LinkTo @route="admin.form-builder">{{t "nav.forms"}}</LinkTo>
       </LinkTo>
       <li><a href="" {{on "click" this.logout}}>{{t "nav.logout"}}</a></li>
-    </ul>
-  {{/if}}
+    {{/if}}
+  </ul>
 </header>
 
 <main class="uk-container uk-margin-large-top uk-margin-large-bottom">

@@ -44,6 +44,12 @@ module.exports = function (environment) {
         pos: "bottom-right",
       },
     },
+
+    moment: {
+      includeLocales: ["de", "en"],
+    },
+
+    languages: ["de", "en"],
   };
 
   if (environment === "development") {
