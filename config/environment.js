@@ -29,14 +29,17 @@ module.exports = function (environment) {
     },
 
     "ember-simple-auth-oidc": {
-      host: "/auth/realms/dinacon-awards/protocol/openid-connect",
-      clientId: "dinacon-awards",
-      authEndpoint: "/auth",
-      tokenEndpoint: "/token",
-      endSessionEndpoint: "/logout",
-      userinfoEndpoint: "/userinfo",
-      afterLogoutUri: "/",
-      forwardParams: ["kc_idp_hint"],
+      host:
+        process.env.OIDC_HOST ||
+        "/auth/realms/dinacon-awards/protocol/openid-connect",
+      clientId: process.env.OIDC_CLIENT_ID || "dinacon-awards",
+      authEndpoint: process.env.OIDC_AUTH_ENDPOINT || "/auth",
+      tokenEndpoint: process.env.OIDC_TOKEN_ENDPOINT || "/token",
+      endSessionEndpoint: process.env.OIDC_END_SESSION_ENDPOINT || "/logout",
+      userinfoEndpoint: process.env.OIDC_USERINFO_ENDPOINT || "/userinfo",
+      afterLogoutUri: process.env.OIDC_LOGOUT_URI || "/",
+      forwardParams: (process.env.OIDC_FORWARD_PARAMS &&
+        process.env.OIDC_FORWARD_PARAMS.split(",")) || ["kc_idp_hint"],
     },
 
     "ember-uikit": {
