@@ -14,11 +14,11 @@ nav:
 
 index:
   nominate: "Nominieren Sie ein Projekt"
-  nominate-error: "Fehler beim Starten der Nominierung"
+  nominate-error: "Fehler beim Starten der Nomination"
 
 complete:
   title: "Vielen Dank!"
-  subtitle: "Ihre {type, select, nomination {Nominierung} application {Bewerbung} other {}} wurde erfolgreich eingereicht!"
+  subtitle: "Ihre {type, select, nomination {Nomination} application {Bewerbung} other {}} wurde erfolgreich eingereicht!"
   home: "Bringen Sie mich zurück zur Startseite"
   stamp: "Dokument mit Stempel"
 
@@ -28,12 +28,12 @@ admin:
   all-categories: "Alle Kategorien"
 
   types:
-    nomination: "Nominierungen"
+    nomination: "Nominationen"
     application: "Bewerbungen"
 
   application:
     create: "Offizielle Bewerbung starten"
-    create-confirm: "Wollen Sie wirklich eine offizielle Bewerbung für diese Nominierung starten?"
+    create-confirm: "Wollen Sie wirklich eine offizielle Bewerbung für diese Nomination starten?"
     create-error: "Fehler beim Starten der offiziellen Bewerbung"
     invite: "Laden Sie Personen ein, diese Bewerbung mit dem folgenden Link auszufüllen:"
     pending: "Ausstehend"
@@ -41,22 +41,21 @@ admin:
 
 footer:
   timeline:
-    # TODO
-    # title: "How will the process look like until the winners will be awarded at DINAcon 2020 on the 23. of October?"
-    # title1: "End of the nomination phase"
+    title: "So sieht der Ablauf aus, bis wir am 23. Oktober 2020 die Gewinner der DINAcon Awards verkünden dürfen:"
+    title1: "Ende der Nominationsphase"
     date1: "15. Juni 2020"
-    # title2: "Closing of application process"
+    title2: "Bewerbungsschluss"
     date2: "30. Juni 2020"
-    # body2: "We might contact you for additional information if we have questions or if we are curious about your great project."
-    # title3: "Jury shortlist nomination"
+    body2: "Wir werden Sie bei Fragen oder für zusätzliche Informationen kontaktieren."
+    title3: "Die Jury wählt eine Shortlist von Projekten aus"
     date3: "1. September 2020"
-    # body3: "Our jury will nominate 3 finalists per category out of all the applicants - you will be informed about our decision.\n\nIf you are one of the final candidates you will be invited to the DINAcon - conference. Be ready for this great networking platform, for interesting talks, exciting sessions and a fun time!"
-    # title4: "Showcase"
+    body3: "Unsere Jury nominiert 3 Finalisten pro Kategorie aus allen eingegangenen Bewerbungen. Sie werden über unsere Entscheidung informiert und falls Sie eine/r der finalen Kandidaten für die DINAcon Awards sind, persönlich für die Konferenz eingeladen. Es warten eine großartige Networking-Plattform, interessante Gespräche, spannende Sessions und eine tolle Zeit auf Sie!"
+    title4: "Ausstellung"
     date4: "September / Oktober 2020"
-    # body4: "We want to show some awesome projects to our conference guests before the award ceremony - so if you would like to use this additional publicity for your project we’d love to create a short promotional clip with you!"
+    body4: "Wir möchten unseren Konferenzgästen vor der Preisverleihung einige der großartigen Bewerberprojekte zeigen - wenn Sie diese zusätzliche Werbung für Ihr Projekt nutzen möchten, würden wir gerne einen kurzen Werbeclip mit Ihnen erstellen!"
     title5: "DINAcon"
     date5: "23. October 2020"
-    # body5: "DINAcon at Welle7 in Berne - be ready, start cooling your champagne and use your chance to be the winner of the DINAcon Awards 2020!"
+    body5: "DINAcon Konferenz im Welle7 Workspace in Bern - fangen Sie an, Ihren Champagner zu kühlen und nutzen Sie Ihre Gelegenheit, Sieger der DINAcon Awards 2020 zu werden!"
 
 notfound:
   title: "404 - Seite nicht gefunden!"
