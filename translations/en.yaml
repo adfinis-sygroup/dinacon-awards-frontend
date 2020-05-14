@@ -14,7 +14,25 @@ nav:
 
 index:
   nominate: "Nominate a project"
+  contact: "Contact Us"
   nominate-error: "Error while starting the nomination"
+
+  title: "DINAcon Awards"
+  part1: "We invite you to nominate projects, organizations and initiatives for this years DINAcon Awards."
+  part2: "Are you part of a project yourself or do you know companies, organizations or administrative units that successfully use or develop open source solutions or are involved in digital sustainability?"
+  subtitle: "Nominate your favorite candidate for this year's DINAcon Awards now!"
+  part3: "In 2020, the DINAcon Awards will be presented in 6 categories to projects that stand out through innovation, open standards and/or other qualities. You can learn more about our categories on our"
+  part4: "website"
+
+  part5: "The nomination deadline is"
+  part6: "June 2nd, 2020."
+  part7: "After successful"
+  part8: "project nomination"
+  part9: ", we will contact you and ask the project initiator or the specified team member to confirm the nomination for the DINAcon Awards in a supplementary form as a definitive"
+  part10: "application"
+  part11: "."
+  part12: "We ask you to follow the steps in the form, provide all required information and in the second step submit your application with completed texts."
+  part13: "Please do not hesitate to contact us if you have any questions."
 
 complete:
   title: "Thank you!"

@@ -1,1 +1,17 @@
-<UkButton @size="large" @on-click={{perform this.nominate}}>{{t "index.nominate"}}</UkButton>
+<div class="uk-text-center uk-width-xxlarge uk-margin-auto">
+  <h1>{{t "index.title"}}</h1>
+
+  <p>{{t "index.part1"}}</p>
+  <p>{{t "index.part2"}}</p>
+
+  <h2>{{t "index.subtitle"}}</h2>
+
+  <p>{{t "index.part3"}} <a href="https://awards.dinacon.ch/awards-kategorien-2020/">{{t "index.part4"}}</a></p>
+  <p>{{t "index.part5"}} <strong>{{t "index.part6"}}</strong></p>
+  <p>{{t "index.part7"}} <strong>{{t "index.part8"}}</strong>{{t "index.part9"}} <strong>{{t "index.part10"}}</strong> {{t "index.part11"}}</p>
+  <p>{{t "index.part12"}}</p>
+  <p>{{t "index.part13"}}</p>
+
+  <UkButton @color="primary" @size="large" @on-click={{perform this.nominate}}>{{t "index.nominate"}}</UkButton>
+  <a class="uk-button uk-button-secondary uk-button-large" href="mailto:maria.fanger@inf.unibe.ch">{{t "index.contact"}}</a>
+</div>
