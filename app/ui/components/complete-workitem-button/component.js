@@ -51,7 +51,7 @@ export default class CompleteWorkitemButtonComponent extends Component {
 
       yield this.router.transitionTo(routeAfterSuccess);
     } catch (error) {
-      this.notification.danger("danger danger");
+      this.notification.danger(this.intl.t("complete.error"));
     }
   }
 }

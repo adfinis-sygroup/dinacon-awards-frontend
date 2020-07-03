@@ -35,6 +35,7 @@ index:
   part13: "Please do not hesitate to contact us if you have any questions."
 
 complete:
+  error: "Error while submitting the form. Please try again!"
   title: "Thank you!"
   subtitle: "Your {type, select, nomination {nomination} application {application} other {}} was successfully submitted"
   home: "Take me back to the homepage"

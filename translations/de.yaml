@@ -35,6 +35,7 @@ index:
   part13: "Bei Fragen stehen wir Ihnen jederzeit zur Verfügung."
 
 complete:
+  error: "Fehler beim Abschicken des Formulars. Bitte versuchen Sie es nochmals!"
   title: "Vielen Dank!"
   subtitle: "Ihre {type, select, nomination {Nomination} application {Bewerbung} other {}} wurde erfolgreich eingereicht!"
   home: "Bringen Sie mich zurück zur Startseite"
